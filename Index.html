@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MLK PG College - PYQ Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>MLK PG College <img src="" style="width: 40px; height: auto;"></h1>
+      <p>Previous Year Papers</p>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li class="nav1"><a href="#courses">Courses</a></li>
+        <li class="nav1"><a href="#about">About</a></li>
+        <li class="nav1"><a href="#signup">T&C</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div class="hero-text">
+      <h2>Welcome to MLK PG College's PYQ Portal</h2>
+      <p>Your gateway to download previous year question papers for BBA, BCA, and B.Com.</p>
+      <a href="#courses" class="cta-btn">Create Account</a>
+      <a href="#courses" class="cta-btn">SignIn</a>
+    </div>
+  </section>
+
+  <section id="courses">
+    <h2>Select Your Course</h2>
+    <div class="course-container">
+      <div class="course-card" onclick="openSyllabus('BBA')">
+        <h3>BBA</h3>
+        <p>Course Syllabus</p>
+        <div class="button-container">
+          <button class="action-button" onclick="redirectToPapers('bba-papers.html'); event.stopPropagation();">Previous Year Papers</button>
+          <button class="action-button" onclick="openSyllabus('BBA'); event.stopPropagation();">Syllabus</button>
+        </div>
+      </div>
+      <div class="course-card" onclick="openSyllabus('BCA')">
+        <h3>BCA</h3>
+        <p>Course Syllabus</p>
+        <div class="button-container">
+          <button class="action-button" onclick="redirectToPapers('bca-papers.html'); event.stopPropagation();">Previous Year Papers</button>
+          <button class="action-button" onclick="openSyllabus('BCA'); event.stopPropagation();">Syllabus</button>
+        </div>
+      </div>
+      <div class="course-card" onclick="openSyllabus('BCom')">
+        <h3>B.Com</h3>
+        <p>Course Syllabus</p>
+        <div class="button-container">
+          <button class="action-button" onclick="redirectToPapers('bcom-papers.html'); event.stopPropagation();">Previous Year Papers</button>
+          <button class="action-button" onclick="openSyllabus('BCom'); event.stopPropagation();">Syllabus</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="card">
+      <p>MLK PG College is committed to providing students with the resources they need to excel in their academic pursuits. This portal allows easy access to previous year question papers for BBA, BCA, and B.Com students.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 MLK PG College - PYQ Portal. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Function to redirect to the appropriate papers page
+    function redirectToPapers(page) {
+      window.location.href = page;
+    }
+
+    // Example function to open syllabus (if needed for later use)
+    function openSyllabus(course) {
+      alert(`Opening ${course} syllabus...`);
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

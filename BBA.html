@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBA Previous Year Papers</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #4e73df;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    header:hover {
+      background-color: #2e59d9;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #d1d3e2;
+    }
+
+    section {
+      margin: 30px auto;
+      padding: 30px;
+      max-width: 600px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: box-shadow 0.3s;
+    }
+
+    select:focus {
+      outline: none;
+      box-shadow: 0 0 8px #4e73df;
+    }
+
+    .paper-link {
+      display: block;
+      margin: 12px 0;
+      color: #4e73df;
+      text-decoration: none;
+      font-weight: 500;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .paper-link:hover {
+      color: #2e59d9;
+      transform: translateX(5px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #4e73df;
+      color: white;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      animation: slideInUp 1s;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      section {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BBA Previous Year Papers</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Select Your Semester</h2>
+    <select id="semester-select" onchange="loadPapers()">
+      <option value="" disabled selected>Select Semester</option>
+      <option value="1">Semester 1</option>
+      <option value="2">Semester 2</option>
+      <option value="3">Semester 3</option>
+      <option value="4">Semester 4</option>
+      <option value="5">Semester 5</option>
+      <option value="6">Semester 6</option>
+    </select>
+    <div id="papers-container">
+      <p>Please select a semester to view available papers.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 MLK PG College. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const papers = {
+      1: ['Business Management.pdf', 'Accounting Principles.pdf'],
+      2: ['Marketing Basics.pdf', 'Economics Introduction.pdf'],
+      3: ['Financial Management.pdf', 'Organizational Behavior.pdf'],
+      4: ['Human Resource Management.pdf', 'Corporate Law.pdf'],
+      5: ['Business Ethics.pdf', 'Entrepreneurship Development.pdf'],
+      6: ['Strategic Management.pdf', 'International Business.pdf']
+    };
+
+    function loadPapers() {
+      const semester = document.getElementById('semester-select').value;
+      const container = document.getElementById('papers-container');
+      container.innerHTML = ''; 
+
+      if (papers[semester]) {
+        papers[semester].forEach(paper => {
+          const paperLink = document.createElement('a');
+          paperLink.href = `papers/${paper}`;
+          paperLink.target = '_blank';
+          paperLink.innerText = paper;
+          paperLink.className = 'paper-link';
+          container.appendChild(paperLink);
+          container.appendChild(document.createElement('br'));
+        });
+      } else {
+        container.innerHTML = '<p>No papers available for this semester.</p>';
+      }
+    }
+  </script>
+</body>
+</html>
